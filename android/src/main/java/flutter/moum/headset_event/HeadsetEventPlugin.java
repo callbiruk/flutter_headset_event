@@ -75,6 +75,8 @@ public class HeadsetEventPlugin implements FlutterPlugin, MethodCallHandler {
 
     @Override
     public void onDetachedFromEngine(@NonNull FlutterPluginBinding binding) {
+      if(hReceiver != null) {  
         binding.getApplicationContext().unregisterReceiver(hReceiver);
+      }
     }
 }
