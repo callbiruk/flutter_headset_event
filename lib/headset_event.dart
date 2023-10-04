@@ -14,9 +14,9 @@ enum HeadsetState {
 
 class HeadsetEvent {
   
-  static HeadsetEvent _instance;
+  static HeadsetEvent? _instance;
   final MethodChannel _channel;
-  DetectPluggedCallback detectPluggedCallback;
+  late DetectPluggedCallback detectPluggedCallback;
 
   factory HeadsetEvent() {    
     if (_instance == null) {
@@ -24,19 +24,19 @@ class HeadsetEvent {
           const MethodChannel('flutter.moum/headset_event');
       _instance = HeadsetEvent.private(methodChannel);
     }
-    return _instance;
+    return _instance!;
   }
   
   @visibleForTesting
   HeadsetEvent.private(this._channel);
 
-  Future<String> get platformVersion async {
-    final String version = await _channel.invokeMethod('getPlatformVersion');
+  Future<String?> get platformVersion async {
+    final String? version = await _channel.invokeMethod('getPlatformVersion');
     return version;
   }
 
   Future<HeadsetState> get getCurrentState async {
-    final int state = await _channel.invokeMethod('getCurrentState');
+    final int? state = await _channel.invokeMethod('getCurrentState');
     switch(state) {
       case 0:
         return Future.value(HeadsetState.DISCONNECT);

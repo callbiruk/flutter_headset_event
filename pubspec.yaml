@@ -1,11 +1,11 @@
 name: headset_event
 description: Detect headset plugged, unplugged.
-version: 0.0.2
+version: 0.1.0
 author: songyiYu<songyi0207@gmail.com>, yenoss<cpg0504@gmail.com>, Flutter Moum Group<flutter.moum@gmail.com>
 homepage: https://github.com/flutter-moum/flutter_headset_event
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:
